@@ -1,0 +1,59 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build and Flash ESPhome Wifi No Logs",
+            "type": "shell",
+            "command": "esphome run --device OTA --no-logs ${fileBasename}",
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Build and Flash ESPhome Wifi With Logs",
+            "type": "shell",
+            "command": "esphome run --device OTA ${fileBasename}",
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Start Esphome Dashboard",
+            "type": "shell",
+            "command": "esphome dashboard ${fileDirname}",
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Update ESPHome to Newest Dev",
+            "type": "shell",
+            "command": "pip3 install https://github.com/esphome/esphome/archive/dev.zip",
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        }
+    ]
+}
